@@ -1,0 +1,25 @@
+#!/bin/bash
+. /root/.bashrc
+
+# shellcheck disable=SC2164
+cd /opt/justMIME/
+
+function gradle_launch() {
+    # shellcheck disable=SC2086
+    $1/gradlew -c lib/settings.gradle.kts "$2"
+}
+
+case $1 in
+  bash)
+    bash
+    ;;
+  lib)
+    gradle_launch lib "$2"
+    ;;
+  build)
+#    if ! "$TODO"
+#    then
+#      exit
+#    fi
+    ;;
+esac
