@@ -15,7 +15,7 @@ podman run -it -v $(pwd):/opt/justmime:z --name justmime-build justmime-builder 
 
 ### create
 ```shell
-podman create -it -p 1234:1234 -v $(pwd):/opt/justmime:z --name justmime-dev justmime-builder
+podman create -it -v $(pwd):/opt/justmime:z --name justmime-dev justmime-builder
 ```
 
 ### start

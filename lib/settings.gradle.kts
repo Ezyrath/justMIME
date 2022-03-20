@@ -1,4 +1,3 @@
 
 rootProject.name = "lib"
-include("processor")
-
+include("generator")

@@ -1,7 +1,5 @@
 plugins {
     kotlin("multiplatform") version "1.6.10"
-    id("com.google.devtools.ksp") version  "1.6.10-1.0.4"
-    idea
 }
 
 group = "ezy.justmime.lib"
@@ -26,6 +24,7 @@ kotlin {
             commonWebpackConfig {
                 cssSupport.enabled = true
             }
+            binaries.executable()
         }
     }
     val hostOs = System.getProperty("os.name")
@@ -51,29 +50,5 @@ kotlin {
         val jsTest by getting
         val nativeMain by getting
         val nativeTest by getting
-    }
-}
-
-dependencies {
-    add("kspMetadata", project(":processor"))
-    add("kspJvm", project(":processor"))
-    add("kspJvmTest", project(":processor"))
-    add("kspJs", project(":processor"))
-    add("kspJsTest", project(":processor"))
-    add("kspNative", project(":processor"))
-    add("kspNativeTest", project(":processor"))
-}
-
-task("testLibFast") {
-    group = "app"
-
-    dependsOn("metadataMainClasses")
-    dependsOn("jvmTestClasses")
-}
-
-idea {
-    module {
-        sourceDirs = sourceDirs + file("build/generated/ksp/metadata/commonMain/kotlin")
-        generatedSourceDirs = generatedSourceDirs + file("build/generated/ksp/metadata/commonMain/kotlin")
     }
 }
