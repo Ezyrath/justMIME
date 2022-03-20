@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="DevContainer Create" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="podman create -it -p 1234:1234 -v $(pwd):/opt/justMIME:z --name justmime-dev justmime-builder" />
+    <option name="SCRIPT_TEXT" value="podman create -it -v $(pwd):/opt/justMIME:z --name justmime-dev justmime-builder" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
