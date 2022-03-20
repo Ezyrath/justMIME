@@ -1,9 +1,5 @@
 import java.io.File
 
-fun generateTypesByFile(): String {
-    return ""
-}
-
 fun main(){
     val resDir = File("${System.getProperty("user.dir")}/src/main/resources")
     val generatedDir = File("${System.getProperty("user.dir")}/build/generated")
@@ -13,8 +9,8 @@ fun main(){
     var types = "\n"
 
     resDir.listFiles().forEach { file ->
-        file.reader().readLines().forEach { s ->
-            s.split(",").let {
+        file.reader().readLines().forEach { line ->
+            line.split(",").let {
                 types += "                 arrayOf(\"${it[0]}\",\"${it[1]}\"),\n"
             }
         }

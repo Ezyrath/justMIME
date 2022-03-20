@@ -9,9 +9,17 @@ function gradle_launch() {
     $1/gradlew -c lib/settings.gradle.kts "$2"
 }
 
+function generate() {
+    gradle_launch lib :generator:run
+    cp lib/generator/build/generated/ListTypes.kt lib/src/commonMain/kotlin/ListTypes.kt 1>/dev/null 2>&1
+}
+
 case $1 in
   bash)
     bash
+    ;;
+  generate)
+    generate
     ;;
   lib)
     gradle_launch lib "$2"
