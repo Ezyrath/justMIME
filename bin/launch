@@ -25,9 +25,23 @@ case $1 in
     gradle_launch lib "$2"
     ;;
   build)
-#    if ! "$TODO"
-#    then
-#      exit
-#    fi
+    rm -Rf build
+
+    echo --- GENERATE CODE ---
+    if ! generate
+    then
+      exit
+    fi
+
+    echo --- BUILD ---
+    if ! gradle_launch lib build
+    then
+      exit
+    fi
+
+    mkdir build 1>/dev/null 2>&1
+    cp lib/build/distributions/justmime.js build/
+
+    echo --- FINISH ---
     ;;
 esac
