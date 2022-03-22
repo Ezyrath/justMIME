@@ -10,9 +10,12 @@ WORKDIR /opt/justMIME
 #install openjdk-11
 RUN dnf install -y java-11-openjdk
 
+#install for test
+RUN dnf install -y firefox nodejs
+
 COPY bin /bin
 RUN chmod +x /bin/launch
-RUN echo "complete -W \"bash lib build\" launch" >> /root/.bashrc
+RUN echo "complete -W \"bash lib test build\" launch" >> /root/.bashrc
 
 ENTRYPOINT ["launch"]
 CMD ["bash"]
