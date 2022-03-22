@@ -1,13 +1,39 @@
 # justMIME
 
-## Install
+justMIME allows you to resolve the MIME types :
+* Get the MIME types for the extension file `pdf -> application/pdf` use `getByExtension`
+* Get the extension file for the MIME types `application/pdf -> pdf` use `getByName`
 
-```shell
-podman build . -t justmime-builder
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_Types
+
+## Download
+* [For Javascript / Node.js](/build/justmime.js)
+
+## Use for Javascript
+
+```html
+<script src="justmime.js"></script>
+```
+
+```javascript
+const mime = new justmime.MIMEResolver()
+
+mime.getByExtension("pdf")
+mime.getByName("application/pdf")
+```
+
+## Use for Node.js
+```javascript
+const MIMEResolver = new require("./justmime.js").MIMEResolver
+const mime = new MIMEResolver()
+
+mime.getByExtension("pdf");
+mime.getByName("application/pdf")
 ```
 
 ## Build
 ```shell
+podman build . -t justmime-builder
 podman run -it -v $(pwd):/opt/justmime:z --name justmime-build justmime-builder build
 ```
 
@@ -25,22 +51,7 @@ podman start -ia justmime-dev
 
 ### List of command (in container)
 
-> :warning: Work with container entrypoint (without launch prefix)
-
-* Test library
 ```shell
-launch lib test
+launch generate #generate code before use by the lib
+launch build    #build and distribution 
 ```
-
-* Build and distribution
-```shell
-launch build
-```
-
-## Fix intellij generated code resolution (For Dev)
-
-> Temporary solution while waiting to find better
-
-1. `File > Project Structure` -> import module
-2. Select `lib/build/generated/ksp/metadata`
-3. Add module `metadata` as a dependencies in module `commonMain`
