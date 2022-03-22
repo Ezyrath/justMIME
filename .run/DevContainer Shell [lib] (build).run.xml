@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="DevContainer Shell [lib] (allTest)" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="podman exec -it justmime-dev launch lib allTest" />
+  <configuration default="false" name="DevContainer Shell [lib] (build)" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="podman exec -it justmime-dev launch lib build" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
