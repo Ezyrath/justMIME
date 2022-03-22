@@ -1,3 +1,3 @@
 
-rootProject.name = "lib"
+rootProject.name = "justmime"
 include("generator")
