@@ -34,14 +34,14 @@ mime.getByName("application/pdf")
 ## Build
 ```shell
 podman build . -t justmime-builder
-podman run -it -v $(pwd):/opt/justmime:z --name justmime-build justmime-builder build
+podman run -it -v $(pwd):/opt/justMIME:z --name justmime-build justmime-builder build
 ```
 
 ## Dev Container
 
 ### create
 ```shell
-podman create -it -v $(pwd):/opt/justmime:z --name justmime-dev justmime-builder
+podman create -it -v $(pwd):/opt/justMIME:z --name justmime-dev justmime-builder
 ```
 
 ### start
