@@ -1,4 +1,4 @@
-import ezy.justmine.lib.allTypes
+import ezy.justmime.lib.allTypes
 
 @JsExport
 class MIMEResolver() {

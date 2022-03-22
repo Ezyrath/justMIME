@@ -1,4 +1,4 @@
-import ezy.justmine.lib.allTypes
+import ezy.justmime.lib.allTypes
 
 class MIMEResolver() {
     private val hashByExt = allTypes.associate { it[0] to it[1] }
