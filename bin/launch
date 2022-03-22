@@ -10,6 +10,7 @@ function gradle_launch() {
 }
 
 function generate() {
+    mkdir -p lib/src/commonMain/kotlin
     gradle_launch lib :generator:run
     cp lib/generator/build/generated/ListTypes.kt lib/src/commonMain/kotlin/ListTypes.kt 1>/dev/null 2>&1
 }
@@ -30,12 +31,14 @@ case $1 in
     echo --- GENERATE CODE ---
     if ! generate
     then
+      ERROR GENERATE
       exit
     fi
 
     echo --- BUILD ---
     if ! gradle_launch lib build
     then
+      ERROR BUILD
       exit
     fi
 
