@@ -15,16 +15,24 @@ kotlin {
             kotlinOptions.jvmTarget = "11"
         }
         withJava()
-        testRuns["test"].executionTask.configure {
-            useTestNG()
-        }
     }
     js(IR) {
+        binaries.executable()
+
         browser {
+            testTask {
+                useKarma {
+                    useFirefoxHeadless()
+                    //useChrome()
+                    //useSafari()
+                }
+            }
             commonWebpackConfig {
                 cssSupport.enabled = true
             }
-            binaries.executable()
+        }
+        nodejs {
+
         }
     }
     val hostOs = System.getProperty("os.name")
