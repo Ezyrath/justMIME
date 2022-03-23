@@ -31,14 +31,14 @@ case $1 in
     echo --- GENERATE CODE ---
     if ! generate
     then
-      ERROR GENERATE
+      echo ERROR GENERATE
       exit
     fi
 
     echo --- BUILD ---
     if ! gradle_launch lib build
     then
-      ERROR BUILD
+      echo ERROR BUILD
       exit
     fi
 
